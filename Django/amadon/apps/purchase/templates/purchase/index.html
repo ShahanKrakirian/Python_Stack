@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load staticfiles %}
+    <link rel='stylesheet' type='text/css' href="{% static 'purchase/styles.css' %}"/>
+    <title>Amadon</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>Welcome to Amadon, where your choices are endless!</h1>
+        <table>
+            <!--Header-->
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+            <!--Shirt-->
+            <tr>
+                <td>Dojo T Shirt</td>
+                <td>$19.99</td>
+                <td>
+                    <form action='amadon/process/shirt' method='post'>
+                        {% csrf_token %}
+                        <select name='quantity'>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <input type='hidden' name='product_id'> <!--Do I need a value for this?-->
+                        <input type='submit' value='Buy!'>
+                    </form>
+                </td>
+            </tr>
+            <!--Sweater-->
+            <tr>
+                <td>Dojo Sweater</td>
+                <td>$29.99</td>
+                <td>
+                    <form action='amadon/process/sweater' method='post'>
+                        {% csrf_token %}
+                        <select name='quantity'>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <input type='hidden' name='product_id'> <!--Do I need a value for this?-->
+                        <input type='submit' value='Buy!'>
+                    </form>
+                </td>
+            </tr>
+            <!--Cup-->
+            <tr>
+                <td>Dojo Cup</td>
+                <td>$4.99</td>
+                <td>
+                    <form action='amadon/process/cup' method='post'>
+                        {% csrf_token %}
+                        <select name='quantity'>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <input type='hidden' name='product_id'> <!--Do I need a value for this?-->
+                        <input type='submit' value='Buy!'>
+                    </form>
+                </td>
+            </tr>
+            <!--Algorithm Book-->
+            <tr>
+                <td>Algorithm Book</td>
+                <td>$49.99</td>
+                <td>
+                    <form action='amadon/process/book' method='post'>
+                        {% csrf_token %}
+                        <select name='quantity'>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <input type='hidden' name='product_id'> <!--Do I need a value for this?-->
+                        <input type='submit' value='Buy!'>
+                    </form>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <a href='/amadon/reset'>Click to delete your total amount spent data.</a>
+    </div>
+</body>
+</html>

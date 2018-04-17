@@ -1,0 +1,25 @@
+#wrapper{
+    height:300px;
+    width: 500px;
+    margin: 100px auto;
+    text-align:center;
+}
+
+.correct{
+    height:100px;
+    width:100px;
+    background-color:lightgreen;
+    text-align:center;
+    margin: 0 auto;
+}
+
+.incorrect{
+    height:100px;
+    width: 100px;
+    background-color:red;
+    text-align:center;
+    margin: 0 auto;
+}
+.lower{
+    margin-top: 40px;
+}

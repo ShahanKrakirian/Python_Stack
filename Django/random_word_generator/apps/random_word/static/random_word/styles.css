@@ -1,0 +1,15 @@
+#wrapper{
+    margin: 50px auto;
+    text-align:center;
+}
+.border{
+    border: 2px solid black;
+    width: 400px;
+    margin: 0 auto;
+}
+.shadow{
+    box-shadow: 1px 1px 5px black;
+}
+form{
+    margin-top: 10px;
+}

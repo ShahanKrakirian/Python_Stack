@@ -1,0 +1,36 @@
+#wrapper{
+    margin: 50px auto;
+    width: 650px;
+    text-align:left;
+}
+.border{
+    border: 2px solid black;
+    margin-top: 10px;
+}
+.right{
+    text-align:right;
+    margin-left: 350px;
+}
+.inline-block{
+    display:inline-block;
+}
+#left{
+    width:300px;
+}
+#right{
+    width:300px;
+    vertical-align:top;
+}
+.red{
+    color:red;
+}
+.green{
+    color:lightgreen;
+}
+.blue{
+    color:blue;
+}
+.bold{
+    font-weight:bold;
+    font-size: 26px;
+}

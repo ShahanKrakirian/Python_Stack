@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load staticfiles %}
+    <link rel='stylesheet' type='text/css' href="{% static 'game/styles.css' %}"/>
+    <title>Amadon</title>
+</head>
+<body>
+    <div id="wrapper">
+        <p class='margin'>Your Gold: {{request.session.total}}</p>
+        <div class='locations margin'>
+            <h3>Farm</h3>
+            <p>(earn 10-20 gold)</p>
+            <form action="/calculate/farm" method='post'>
+                {% csrf_token %}
+                <input type='submit' value='Find Gold!'>
+            </form>
+        </div>
+        <div class='locations margin'>
+            <h3>Cave</h3>
+            <p>(earn 5-10 gold)</p>
+            <form action="/calculate/cave" method='post'>
+                {% csrf_token %}
+                <input type='submit' value='Find Gold!'>
+            </form>        
+        </div>
+        <div class='locations margin'>
+            <h3>House</h3>
+            <p>(earn 2-5 gold)</p>
+            <form action="/calculate/house" method='post'>
+                {% csrf_token %}
+                <input type='submit' value='Find Gold!'>
+            </form>        
+        </div>
+        <div class='locations margin'>
+            <h3>Casino</h3>
+            <p>(earn/takes 0-50 gold)</p>
+            <form action="/calculate/casino" method='post'>
+                {% csrf_token %}
+                <input type='submit' value='Gamble Gold!'>
+            </form>
+        </div>
+        <div class='activities margin'>
+            <p>Activities:</p>
+            <div class='border'>
+                {% for phrase in request.session.phrase %}
+                <p class='{{phrase.1}}'>{{ phrase.0 }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        <br><br>
+        <a href='/reset'>Reset</a>        
+    </div>
+</body>

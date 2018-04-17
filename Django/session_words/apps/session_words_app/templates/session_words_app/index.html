@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load staticfiles %}
+    <link rel='stylesheet' type='text/css' href="{% static 'session_words_app/styles.css' %}"/>
+    <title>Survey Form</title>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="left" class='inline-block'>
+            <h2>Add a new word!</h2>
+            <form action='/process/' method='post'>
+                {% csrf_token %}
+                <!--Word-->
+                <input type='text' name='word'>
+                <!--Colors-->
+                <p>Choose a color:</p>
+                <input type="radio" name="color" value="red">Red<br>
+                <input type="radio" name="color" value="green">Green<br>
+                <input type="radio" name="color" value="blue">Blue<br><br>
+                <!--Big-->
+                <span><input type="checkbox" name="big">Show in BIG font!</span><br><br>
+                <input type="submit" value="Add to Session">
+            </form>
+        </div>
+        <div id="right" class='inline-block'>
+            <form action='/clear/' method='post'>
+                {% csrf_token %}
+                <input class='right' type='submit' value='Clear Session'>
+            </form>
+            {% for item in request.session.words %}
+            {% if item.big == True %}
+            <br><span><span class="{{item.color}} bold">{{item.new_word}}</span>&nbspadded on {{item.hour}}, {{item.day}}</span><br>
+            {% else %}
+            <br><span><span class="{{item.color}}">{{item.new_word}}</span>&nbspadded on {{item.hour}}, {{item.day}}</span><br>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

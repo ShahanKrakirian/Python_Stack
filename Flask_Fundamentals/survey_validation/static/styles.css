@@ -1,0 +1,13 @@
+#wrapper{
+    height:400px;
+    width:400px;
+    margin: 100px auto;
+}
+
+label{
+    display:block;
+    color:red;
+}
+.red{
+    color: red;
+}
